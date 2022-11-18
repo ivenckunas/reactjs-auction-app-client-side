@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import axios from 'axios'
 import MainContext from '../context/MainContext'
 import { useNavigate } from 'react-router-dom'
@@ -67,7 +67,7 @@ function Auth() {
   }
 
   return (
-    <div className="container authContainer">
+    <div className=" authContainer">
       <div className='register'>
         <h2>Register</h2>
         <input ref={emailRef} type="text" placeholder='email' />

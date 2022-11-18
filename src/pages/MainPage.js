@@ -3,7 +3,7 @@ import Main from '../components/Main'
 
 function MainPage() {
   return (
-    <div>
+    <div className='container'>
       <Main />
     </div>
   )
