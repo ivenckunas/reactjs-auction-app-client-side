@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import axios from 'axios'
 
 
@@ -29,15 +29,13 @@ function Main() {
   }
 
   return (
-    <div className='main'>
-      <div className="addItem">
-        <h3>Add item to auction</h3>
-        <input ref={imageRef} type="text" placeholder='image' />
-        <input ref={titleRef} type="text" placeholder='title' />
-        <input ref={timeRef} type="number" placeholder='time' />
-        <input ref={priceRef} type="number" placeholder='start price' />
-        <button onClick={upload}>Upload</button>
-      </div>
+    <div className="addItem main">
+      <h3>Add item to auction</h3>
+      <input ref={imageRef} type="text" placeholder='image' />
+      <input ref={titleRef} type="text" placeholder='title' />
+      <input ref={timeRef} type="number" placeholder='time' />
+      <input ref={priceRef} type="number" placeholder='start price' />
+      <button onClick={upload}>Upload</button>
     </div>
   )
 }

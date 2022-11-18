@@ -12,12 +12,15 @@ function App() {
 
   const [registerMsg, setRegisterMsg] = useState('')
   const [loginMsg, setLoginMsg] = useState('')
+  const [auctionItems, setAuctionItems] = useState([])
 
   const states = {
     registerMsg,
     setRegisterMsg,
     loginMsg,
-    setLoginMsg
+    setLoginMsg,
+    auctionItems,
+    setAuctionItems
   }
 
   return (
