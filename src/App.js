@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import MainContext from './context/MainContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
+import './reset.css';
+import AuthPage from './pages/AuthPage';
+import { useState } from 'react';
+import MainPage from './pages/MainPage';
 
 function App() {
+
+
+
+  const [registerMsg, setRegisterMsg] = useState('')
+  const [loginMsg, setLoginMsg] = useState('')
+
+  const states = {
+    registerMsg,
+    setRegisterMsg,
+    loginMsg,
+    setLoginMsg
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <MainContext.Provider value={states}>
+
+        <BrowserRouter>
+
+          <Routes>
+
+            <Route path='/' element={<AuthPage />} />
+            <Route path='/main' element={<MainPage />} />
+
+
+          </Routes>
+
+        </BrowserRouter>
+
+
+      </MainContext.Provider>
+
     </div>
   );
 }
