@@ -27,7 +27,7 @@ function Auction() {
                 <Completionist />
               </Countdown>
               <p>Starting price: {item.price}eur.</p>
-              <p>Current highest bid: {item.bid}eur.</p>
+              <p>Current highest bid: {item.bidder} {item.bid}eur.</p>
             </div>
           </div>
         ))}

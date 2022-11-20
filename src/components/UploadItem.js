@@ -4,6 +4,8 @@ import axios from 'axios'
 
 function Main() {
 
+  const [errorUploadMessage, setErrorUploadMessage] = useState('')
+
   const imageRef = useRef()
   const titleRef = useRef()
   const dateRef = useRef()
@@ -17,18 +19,23 @@ function Main() {
       title: titleRef.current.value,
       date: dateRef.current.value,
       price: priceRef.current.value,
-      bid: 0
+      bid: 0,
+      bidder: 'none',
     }
 
-    console.log('newItemObj ===', newItemObj);
+    if (newItemObj.image && newItemObj.title && newItemObj.price && newItemObj.date) {
+      axios.post('http://localhost:4000/post-item', newItemObj)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      setErrorUploadMessage('Item added')
+    } else {
+      setErrorUploadMessage('Fill all the fields')
+    }
 
-    axios.post('http://localhost:4000/post-item', newItemObj)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
 
   }
 
@@ -41,6 +48,7 @@ function Main() {
       <label htmlFor="">Auction end date</label>
       <input ref={dateRef} type="date" />
       <button onClick={upload}>Upload</button>
+      <p>{errorUploadMessage}</p>
     </div>
   )
 }

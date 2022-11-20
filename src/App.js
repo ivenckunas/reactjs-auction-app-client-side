@@ -49,7 +49,7 @@ function App() {
     const getData = () => {
       axios.get('http://localhost:4000/all-items')
         .then(function (response) {
-          setAuctionItems(response.data)
+          setAuctionItems(response.data.data)
         })
         .catch(function (error) {
           console.log(error);
@@ -58,7 +58,7 @@ function App() {
 
     const interval = setInterval(() => {
       getData()
-    }, 500);
+    }, 1000);
 
     return () => clearInterval(interval)
   }, [])

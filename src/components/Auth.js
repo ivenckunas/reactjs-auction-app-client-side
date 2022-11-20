@@ -32,8 +32,9 @@ function Auth() {
           return
         } else {
           setRegisterMsg(response.data.message);
+          setUserLoggedIn(true)
           setTimeout(() => {
-            nav('/main')
+            nav('/')
           }, 500);
         }
       })
