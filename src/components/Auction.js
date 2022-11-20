@@ -1,42 +1,38 @@
-import React, { useContext, useEffect } from 'react'
-import axios from 'axios'
+import React, { useContext } from 'react'
 import MainContext from '../context/MainContext'
+import Countdown from 'react-countdown';
 
 function Auction() {
 
-  const { auctionItems, setAuctionItems } = useContext(MainContext)
+  const { auctionItems, showModal, setShowModal, setModal, setCurrentItem } = useContext(MainContext)
 
-  useEffect(() => {
-    const getData = () => {
-      axios.get('http://localhost:4000/allItems')
-        .then(function (response) {
-          setAuctionItems(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    const interval = setInterval(() => {
-      getData()
-    }, 2000);
-
-    return () => clearInterval(interval)
-  }, [])
-
+  const Completionist = () => <p className='timeLeft'>auction ended</p>;
 
   return (
     <div className='auction'>
       <div className="auctionItems">
         {auctionItems.map((item, i) => (
-          <div className='singleItem' key={i}>
-            <img src={item.image} alt="auction item image" />
-            <h3>{item.title}</h3>
-            <p>{item.time}</p>
-            <p>{item.price}eur.</p>
+          <div onClick={() => {
+            if (showModal) setShowModal(false)
+            setShowModal(true)
+            setModal(item)
+            setCurrentItem(i)
+          }
+          } className='singleItem' key={i}>
+            <img src={item.image} alt="auction item" />
+            <div className="singleItemInfo">
+              <h3>{item.title}</h3>
+              <p>auction ends in: </p>
+              <Countdown className='timeLeft' date={item.date}>
+                <Completionist />
+              </Countdown>
+              <p>Starting price: {item.price}eur.</p>
+              <p>Current highest bid: {item.bid}eur.</p>
+            </div>
           </div>
         ))}
       </div>
+
     </div>
   )
 }

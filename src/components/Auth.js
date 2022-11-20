@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 function Auth() {
 
 
-  const { setRegisterMsg, registerMsg, loginMsg, setLoginMsg } = useContext(MainContext)
+  const { setRegisterMsg, registerMsg, loginMsg, setLoginMsg, setUserLoggedIn, setCurrentUser } = useContext(MainContext)
 
   const emailRef = useRef()
   const pswRef = useRef()
@@ -34,7 +34,7 @@ function Auth() {
           setRegisterMsg(response.data.message);
           setTimeout(() => {
             nav('/main')
-          }, 1000);
+          }, 500);
         }
       })
       .catch(function (error) {
@@ -55,16 +55,20 @@ function Auth() {
           setLoginMsg(response.data.message);
           return
         } else {
+          setCurrentUser(response.data.data.email)
           setLoginMsg(response.data.message);
+          setUserLoggedIn(true)
           setTimeout(() => {
-            nav('/main')
-          }, 1000);
+            nav('/')
+          }, 500);
         }
       })
       .catch(function (error) {
         console.log(error);
       });
   }
+
+
 
   return (
     <div className=" authContainer">
