@@ -40,13 +40,13 @@ function Main() {
   }
 
   return (
-    <div className="addItem main">
+    <div className="addItem">
       <h3>Add item to auction</h3>
       <input ref={imageRef} type="text" placeholder='image' />
       <input ref={titleRef} type="text" placeholder='title' />
-      <input ref={priceRef} type="number" placeholder='start price' />
-      <label htmlFor="">Auction end date</label>
-      <input ref={dateRef} type="date" />
+      <input ref={priceRef} type="number" placeholder='starting price' />
+      <label htmlFor="">Auction end:</label>
+      <input ref={dateRef} type="datetime-local" />
       <button onClick={upload}>Upload</button>
       <p>{errorUploadMessage}</p>
     </div>

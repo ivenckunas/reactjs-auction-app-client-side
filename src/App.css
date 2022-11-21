@@ -55,20 +55,27 @@
 
 /* Main page */
 
-.main {
-  flex-basis: 20%;
-  background-color: rgb(226, 226, 226);
-  padding: 0 1rem;
-}
-
 .mainPageContainer {
   display: flex;
   gap: 1rem;
 }
 
+/* Main page add item */
+
 .addItem {
+  background-color: rgb(226, 226, 226);
+  padding: 1rem;
   margin-top: 1rem;
-  padding-top: 1rem;
+  max-height: 350px;
+}
+
+.addItem input {
+  margin-bottom: 0.1rem;
+  max-width: 200px;
+}
+
+.addItem input:last-child {
+  width: 150px;
 }
 
 /* Auction */
@@ -85,6 +92,8 @@
   gap: 1rem;
 }
 
+/* Single auction item */
+
 .singleItem {
   flex-basis: 30%;
   flex-grow: 1;
@@ -94,7 +103,7 @@
 
 .singleItem img {
   width: 100%;
-  max-height: 150px;
+  height: 150px;
   object-fit: cover;
 }
 
@@ -108,7 +117,14 @@
   color: rgb(18, 123, 165);
 }
 
-/* Single auction item modal */
+/* Single auction item text styles */
+
+.boldText {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Single auction item modal card */
 
 .singleAuction {
   display: flex;
@@ -146,12 +162,12 @@
 }
 
 .timeLeft {
-  color: #006d77;
+  color: #01967d;
   font-size: 1rem;
 }
 
 .winner {
-  color: #006d77;
+  color: #01967d;
 }
 
 .closeIcon {
@@ -171,7 +187,8 @@
 }
 
 .bid {
-  background-color: rgb(226, 226, 226);
+  border-radius: 8px;
+  background-color: #dddddd;
   padding: 2rem;
   text-align: left;
   margin-bottom: 1rem;
@@ -181,13 +198,10 @@
   margin-bottom: 0.5rem;
 }
 
-.loginMsg {
-  color: rgb(165, 60, 0);
-}
-
 .bidHistoryWrapper {
+  border-radius: 8px;
+  border: 2px solid #dddddd;
   height: 150px;
-  overflow: scroll;
 }
 
 .bidHistory {
@@ -196,6 +210,14 @@
   width: 50%;
   margin: 0.3rem auto;
 }
+
+/* Login/register message */
+
+.loginMsg {
+  color: rgb(165, 60, 0);
+}
+
+/* Hide bidding when auction is over */
 
 .hide {
   display: none;

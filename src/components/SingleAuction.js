@@ -55,6 +55,7 @@ function SingleAuction() {
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet sed cupiditate blanditiis, id aliquam quae praesentium deserunt quos tenetur inventore ab magnam maxime illum? Voluptate sit tempore doloremque accusantium commodi!</p>
           <br />
           <p>Starting price: {modal.price}eur.</p>
+          <p>Time left: {auctionOver && 'Auction finished'}</p>
           <Countdown className="timeLeft" date={modal.date}>
             {<Completionist /> && (
               <div>
