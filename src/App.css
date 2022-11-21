@@ -132,6 +132,8 @@
   justify-content: center;
   align-items: center;
   padding: 6rem;
+  border: 3px solid #b1b1b1;
+  box-shadow: 0px 0px 20px 20px #afafaf;
 }
 
 .singleItemInfo {
@@ -193,4 +195,8 @@
   border: 1px solid slategray;
   width: 50%;
   margin: 0.3rem auto;
+}
+
+.hide {
+  display: none;
 }

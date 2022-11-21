@@ -10,10 +10,15 @@ import Countdown from "react-countdown";
 function SingleAuction() {
   const { modal, setShowModal, userLoggedIn, auctionItems, currentItem, currentUser, setBidHistory, bidHistory } = useContext(MainContext);
 
+  const [auctionOver, setAuctionOver] = useState(false)
+
   const bidRef = useRef();
   const nav = useNavigate();
   const auctionWinner = bidHistory[bidHistory.length - 1];
-  const Completionist = () => <p className="timeLeft">Auction ended.</p>;
+  const Completionist = () => {
+    <p className="timeLeft">Auction ended.</p>
+    setAuctionOver(true)
+  };
 
   const bid = () => {
     const bidData = {
@@ -63,7 +68,7 @@ function SingleAuction() {
           </p>
         </div>
         {userLoggedIn ? (
-          <div className="bid">
+          <div className={auctionOver ? 'hide' : 'bid'} >
             <input ref={bidRef} type="number" placeholder="place your bid" />
             <button onClick={validateBid}>bid</button>
           </div>
@@ -87,14 +92,14 @@ function SingleAuction() {
         />
         <h4>Bid history:</h4>
         <ScrollToBottom className="bidHistoryWrapper">
-          {bidHistory.map((bid) => (
-            <p className="bidHistory">
+          {bidHistory.map((bid, i) => (
+            <p key={i} className="bidHistory">
               {bid.bidder}: {bid.bid}eur
             </p>
           ))}
         </ScrollToBottom>
       </div>
-    </div>
+    </div >
   );
 }
 
