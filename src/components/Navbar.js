@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <div className='navbar'>
-      <img src="https://goauctionsandbox2.blob.core.windows.net/main/GoAuction-Full-Transparent.png" alt="bidding auction" />
+      <img src="https://cdn3.iconfinder.com/data/icons/stock-market-color/64/auction-tender-competition-bid-offer-512.png" alt="bidding auction" />
       <div className="regLog">
         {currentUser ?
           <div>

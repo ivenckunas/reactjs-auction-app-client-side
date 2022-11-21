@@ -5,11 +5,7 @@ import './reset.css';
 import { useEffect, useState } from 'react';
 import AuctionPage from './pages/AuctionPage';
 import AuthPage from './pages/AuthPage';
-import { io } from 'socket.io-client';
 import axios from 'axios'
-
-
-const socket = io.connect('http://localhost:4000');
 
 function App() {
 
@@ -22,9 +18,10 @@ function App() {
   const [time, setTime] = useState([])
   const [currentItem, setCurrentItem] = useState([])
   const [currentUser, setCurrentUser] = useState('')
+  const [bidders, setBidders] = useState([])
+  const [bidHistory, setBidHistory] = useState([])
 
   const states = {
-    socket,
     registerMsg,
     setRegisterMsg,
     loginMsg,
@@ -43,6 +40,10 @@ function App() {
     setCurrentItem,
     setCurrentUser,
     currentUser,
+    bidders,
+    setBidders,
+    bidHistory,
+    setBidHistory
   }
 
   useEffect(() => {
@@ -65,24 +66,14 @@ function App() {
 
   return (
     <div>
-
       <MainContext.Provider value={states}>
-
         <BrowserRouter>
-
           <Routes>
-
             <Route path='/' element={<AuctionPage />} />
             <Route path='/register-login' element={<AuthPage />} />
-
-
           </Routes>
-
         </BrowserRouter>
-
-
       </MainContext.Provider>
-
     </div>
   );
 }

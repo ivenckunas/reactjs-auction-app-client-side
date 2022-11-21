@@ -14,7 +14,7 @@ function Header() {
       <button onClick={() => {
         nav('/register-login')
       }
-      }>Let's go!</button>
+      }>Register/login</button>
     </div>
   )
 }

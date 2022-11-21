@@ -20,7 +20,7 @@ function Main() {
       date: dateRef.current.value,
       price: priceRef.current.value,
       bid: 0,
-      bidder: 'none',
+      bidder: 'none'
     }
 
     if (newItemObj.image && newItemObj.title && newItemObj.price && newItemObj.date) {
