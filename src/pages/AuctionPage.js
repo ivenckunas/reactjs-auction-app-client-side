@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import SingleAuction from '../components/SingleAuction'
 import MainContext from '../context/MainContext'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function MainPage() {
 
@@ -19,7 +20,7 @@ function MainPage() {
         {userLoggedIn && <UploadItem />}
         <Auction />
       </div>
-
+      <Footer />
     </div>
   )
 }

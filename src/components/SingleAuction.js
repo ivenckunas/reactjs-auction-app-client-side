@@ -1,23 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import MainContext from "../context/MainContext";
-import { FaRegWindowClose } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ScrollToBottom from "react-scroll-to-bottom";
 import Countdown from "react-countdown";
+import dateFormat from "dateformat";
+import { FaRegWindowClose } from "react-icons/fa";
+const now = new Date();
 
 function SingleAuction() {
-  const { modal, setShowModal, userLoggedIn, auctionItems, currentItem, currentUser, setBidHistory, bidHistory } = useContext(MainContext);
 
-  const [auctionOver, setAuctionOver] = useState(false)
+  const { modal, setShowModal, userLoggedIn, auctionItems, currentItem, currentUser, setBidHistory, bidHistory, auctionOver } = useContext(MainContext);
+
+  const dateNow = dateFormat(now, "isoDateTime");
+  const compareDate = dateNow > modal.date;
 
   const bidRef = useRef();
   const nav = useNavigate();
   const auctionWinner = bidHistory[bidHistory.length - 1];
   const Completionist = () => {
     <p className="timeLeft">Auction ended.</p>
-    setAuctionOver(true)
   };
 
   const bid = () => {
@@ -64,12 +67,9 @@ function SingleAuction() {
               </div>
             )}
           </Countdown>
-          <p>
-            Current highest bidder: {modal.bidder} {modal.bid}eur.{" "}
-          </p>
         </div>
         {userLoggedIn ? (
-          <div className={auctionOver ? 'hide' : 'bid'} >
+          <div className={compareDate ? 'hide' : 'bid'} >
             <input ref={bidRef} type="number" placeholder="place your bid" />
             <button onClick={validateBid}>bid</button>
           </div>
@@ -79,8 +79,7 @@ function SingleAuction() {
             <button
               onClick={() => {
                 nav("/register-login");
-              }}
-            >
+              }}>
               Login/sign up
             </button>
           </div>

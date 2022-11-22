@@ -1,11 +1,11 @@
 import MainContext from './context/MainContext';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css';
-import './reset.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import AuctionPage from './pages/AuctionPage';
 import AuthPage from './pages/AuthPage';
-import axios from 'axios'
+import axios from 'axios';
+import './App.css';
+import './reset.css';
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState('')
   const [bidders, setBidders] = useState([])
   const [bidHistory, setBidHistory] = useState([])
+
 
   const states = {
     registerMsg,
@@ -43,7 +44,7 @@ function App() {
     bidders,
     setBidders,
     bidHistory,
-    setBidHistory
+    setBidHistory,
   }
 
   useEffect(() => {

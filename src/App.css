@@ -11,6 +11,16 @@
   height: 40px;
 }
 
+.loginOut p {
+  padding-top: 0.6rem;
+}
+
+.loginOut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
 /* Header */
 
@@ -90,6 +100,7 @@
   align-items: stretch;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Single auction item */
@@ -221,4 +232,41 @@
 
 .hide {
   display: none;
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  height: 200px;
+  background: linear-gradient(3deg, #0e6385 10%, #00B4F9 100%);
+}
+
+.footerIcons {
+  padding-top: 1rem;
+  font-size: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.footerLinks a {
+  margin-right: 0.5rem;
+}
+
+.mainPageSidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.filler {
+  background-image: url(https://i0.wp.com/2020presidentsreport.arcadia.edu/wp-content/uploads/2020/04/hd-pattern-png-transparent-triangle-transparent-png-image-pattern-transparent-2048_1024.png?fit=1200%2C600&ssl=1&w=640);
+  background-position: center;
+  flex-grow: 1;
+  height: 100px;
+  margin: 1rem 0;
 }
