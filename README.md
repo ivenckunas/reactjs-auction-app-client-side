@@ -1,3 +1,37 @@
+# MERN Project: Auction/bidding site
+
+Assignment for CodeAcademy studies.
+
+The project's purpose is to provide a platform to add new products and bid on existing ones at auction style website.
+
+## This project was built using:
+
+- React
+- Node.js
+- MongoDB
+- Express
+
+## Assignment requirements implemented:
+
+- User authentication, password hashing, registering, logging in and logging out.
+- Middleware is used to handle requests and responses, such as checking for validations and authentication.
+- Protected routes - so only logged-in users can access certain actions.
+- REST API to handle CRUD (create, read, update, delete) operations on the database.
+
+## Home page
+
+![auction3](https://user-images.githubusercontent.com/97701289/210598840-adc8610e-40ba-41bc-9b1e-20d8550b26ee.png)
+
+## Add a product
+
+![auction](https://user-images.githubusercontent.com/97701289/210598965-c594b2be-70a8-4f6e-9437-a2783fc1bbcf.png)
+
+## Single product page
+
+![auction4](https://user-images.githubusercontent.com/97701289/210599038-d08e04a9-4119-44cc-8607-018229fb80be.png)
+
+---------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
